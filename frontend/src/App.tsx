@@ -5,6 +5,7 @@ import * as cs from '@cloudscape-design/components'
 import { useCollection } from '@cloudscape-design/collection-hooks';
 import "@cloudscape-design/global-styles/index.css"
 
+
 const SERVICE = new ToDoService();
 
 function App() {
