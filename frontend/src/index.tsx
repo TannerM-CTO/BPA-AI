@@ -1,28 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import React Router
-import App from './App';
-import Login from './components/Login'; // Import the Login component
-import TeacherDashboard from "./components/TeacherDashboard"; // Import the TeacherDashboard component
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./components/Layout"; // Import Layout component
+import Login from "./components/Login";
+import TeacherDashboard from "./components/TeacherDashboard";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        {/* Define the route for the Home page */}
-        <Route path="/" element={<App />} />
+        {/* Default route redirects to login */}
+        <Route path="/" element={<Navigate to="/login" />} />
 
-        {/* Define the route for the Login page */}
-        <Route path="/login" element={<Login />} />
+        {/* Public Login Route */}
+        <Route
+          path="/login"
+          element={
+            <Layout>
+              <Login />
+            </Layout>
+          }
+        />
 
-        {/* Define the route for the TeacherDashboard page */}
-        <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
+        {/* Teacher Dashboard Route */}
+        <Route
+          path="/teacher-dashboard"
+          element={
+            <Layout>
+              <TeacherDashboard />
+            </Layout>
+          }
+        />
+
+        {/* Catch-all route */}
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-// Performance monitoring
-reportWebVitals();

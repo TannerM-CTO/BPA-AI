@@ -9,7 +9,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import logo from "../assets/company_logo.jpg"; // Adjust the path if necessary
+import logo from "../assets/logo.jpg"; // Adjust the path if necessary
 
 function Login() {
   return (
