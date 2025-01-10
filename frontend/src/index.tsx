@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import React Router
 import App from './App';
 import Login from './components/Login'; // Import the Login component
+import TeacherDashboard from "./components/TeacherDashboard"; // Import the TeacherDashboard component
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -14,6 +15,9 @@ ReactDOM.render(
 
         {/* Define the route for the Login page */}
         <Route path="/login" element={<Login />} />
+
+        {/* Define the route for the TeacherDashboard page */}
+        <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
       </Routes>
     </Router>
   </React.StrictMode>,
