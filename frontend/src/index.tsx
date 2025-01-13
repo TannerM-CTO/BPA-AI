@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout"; // Import Layout component
 import Login from "./components/Login";
-import TeacherDashboard from "./components/TeacherDashboard";
+import Report from "./components/Report";
+import Dashboard from "./components/Dashboard";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,12 +23,22 @@ ReactDOM.render(
           }
         />
 
-        {/* Teacher Dashboard Route */}
+        {/* Dashboard Route */}
         <Route
-          path="/teacher-dashboard"
+          path="/dashboard"
           element={
             <Layout>
-              <TeacherDashboard />
+              <Dashboard />
+            </Layout>
+          }
+        />
+
+        {/* Teacher Report Route */}
+        <Route
+          path="/report"
+          element={
+            <Layout>
+              <Report />
             </Layout>
           }
         />

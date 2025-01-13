@@ -5,7 +5,7 @@ import { ToDoService } from "./to-do.api";
 import * as cs from "@cloudscape-design/components";
 import { useCollection } from "@cloudscape-design/collection-hooks";
 import "@cloudscape-design/global-styles/index.css";
-import logo from "./assets/logo.png"; // Ensure the logo is added to your assets folder
+import logo from "./assets/logo.png";
 
 const SERVICE = new ToDoService();
 

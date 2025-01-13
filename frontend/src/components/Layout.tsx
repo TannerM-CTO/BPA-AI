@@ -34,7 +34,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <img
           src={logo}
           alt="Company Logo"
-          style={{ height: 50, marginRight: 16 }}
+          style={{ height: 86, marginRight: 16 }}
         />
         <Typography variant="body2" color="text.secondary">
           © 2025 Bright Path Analytics. All rights reserved.
