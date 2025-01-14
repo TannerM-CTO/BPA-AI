@@ -6,6 +6,9 @@ import * as cs from "@cloudscape-design/components";
 import { useCollection } from "@cloudscape-design/collection-hooks";
 import "@cloudscape-design/global-styles/index.css";
 import logo from "./assets/logo.png";
+import Login from "./components/Login"; // Replace with your actual login page
+import Homepage from "./components/Homepage";
+import ReportPage from "./components/ReportPage";
 
 const SERVICE = new ToDoService();
 
@@ -222,15 +225,19 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/login"
-          element={<div style={{ padding: "20px" }}>Login Page</div>} // Replace with actual login page
-        />
+        {/* Login Page (without Layout) */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Pages with Layout */}
         <Route
           path="/*"
           element={
             <Layout>
-              <AppContent />
+              <Routes>
+                <Route path="/homepage" element={<Homepage />} />
+                <Route path="/report-page" element={<ReportPage />} />
+                <Route path="*" element={<Homepage />} /> {/* Fallback to Homepage */}
+              </Routes>
             </Layout>
           }
         />

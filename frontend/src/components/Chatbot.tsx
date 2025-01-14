@@ -5,6 +5,7 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<string[]>([]);
   const [input, setInput] = useState("");
 
+  // Function to handle sending a message
   const handleSend = () => {
     if (input.trim()) {
       setMessages((prev) => [...prev, `You: ${input}`]);
@@ -13,6 +14,14 @@ const Chatbot: React.FC = () => {
       setTimeout(() => {
         setMessages((prev) => [...prev, "Bot: This is a simulated response."]);
       }, 1000);
+    }
+  };
+
+  // Function to handle keypress (Enter to send message)
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent default form submission or new line
+      handleSend();
     }
   };
 
@@ -35,6 +44,7 @@ const Chatbot: React.FC = () => {
           placeholder="Type your message..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyPress} // Add event handler for key press
         />
         <Button variant="contained" onClick={handleSend} sx={{ ml: 2 }}>
           Send
